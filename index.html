@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="logo">WebScape</div>
+        <ul class="nav-links">
+            <li><a href="#ecommerce">E-Commerce</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#landing">Landing</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Discover <span class="gradient-text">Websites</span></h1>
+            <p>Exploring the digital landscape, one pixel at a time.</p>
+        </div>
+        <div class="hero-image">
+            <img src="assets/plant_monstera.png" alt="Monstera Plant" class="floating-plant plant-1">
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- E-Commerce Section -->
+        <section id="ecommerce" class="card-section">
+            <div class="glass-card">
+                <div class="card-content">
+                    <h2>E-Commerce</h2>
+                    <p>Online stores that allow users to buy and sell goods, services, and digital products. Features
+                        include shopping carts, payment gateways, and product catalogs.</p>
+                </div>
+                <div class="card-visual">
+                    <div class="icon-circle">🛍️</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="card-section reverse">
+            <div class="glass-card">
+                <div class="card-visual">
+                    <img src="assets/plant_succulent.png" alt="Succulent Plant" class="floating-plant plant-2">
+                </div>
+                <div class="card-content">
+                    <h2>Portfolio</h2>
+                    <p>Showcases for creative professionals to display their work. Photographers, designers, and
+                        developers use these to attract clients and employers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="card-section">
+            <div class="glass-card">
+                <div class="card-content">
+                    <h2>Blog</h2>
+                    <p>Informational websites consisting of discrete, often informal diary-style text entries. Great for
+                        sharing thoughts, tutorials, and industry news.</p>
+                </div>
+                <div class="card-visual">
+                    <div class="icon-circle">✍️</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Landing Page Section -->
+        <section id="landing" class="card-section reverse">
+            <div class="glass-card">
+                <div class="card-visual">
+                    <img src="assets/plant_fern.png" alt="Fern Plant" class="floating-plant plant-3">
+                </div>
+                <div class="card-content">
+                    <h2>Landing Page</h2>
+                    <!-- JWT Secret Not to be leaked: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyNTA3NDQwMCIsIm5hbWUiOiJORlNVQ1RGe24zM2RfNF9zcDMzZF9iMDBzdF8yMDI2fSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNTE2MjM5MDIyfQ.nlC-iHyA3nAbG12eWdrs31KQmwTzEmaNelfsn9RWqIM -->
+                    <p>A standalone web page, created specifically for a marketing or advertising campaign. It's where a
+                        visitor "lands" after clicking on a link in an email, or ads.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p>&copy; 2024 WebScape. Designed with <span style="color: #ff6b6b;">&hearts;</span> and AI.</p>
+    </footer>
+
+    <script>
+        // Simple parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const globes = document.querySelectorAll('.globe');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            globes.forEach((globe, index) => {
+                const speed = (index + 1) * 20;
+                globe.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
