@@ -48,20 +48,20 @@ async function verify(token, secret) {
 
 async function initSession() {
     let token = sessionStorage.getItem('session_token');
-    
+
     if (!token) {
         console.log("No session found. Creating guest session...");
         const header = base64UrlEncode(JSON.stringify({ alg: "HS256", typ: "JWT" }));
-        const payload = base64UrlEncode(JSON.stringify({ 
-            sub: "guest", 
-            name: "Guest User", 
-            admin: false, 
-            iat: Math.floor(Date.now() / 1000) 
+        const payload = base64UrlEncode(JSON.stringify({
+            sub: "guest",
+            name: "Guest User",
+            admin: false,
+            iat: Math.floor(Date.now() / 1000)
         }));
-        
+
         const signature = await sign(header, payload, SECRET_KEY);
         token = `${header}.${payload}.${signature}`;
-        
+
         sessionStorage.setItem('session_token', token);
         console.log("Guest session created:", token);
     } else {
@@ -83,7 +83,8 @@ async function initSession() {
 }
 
 // Check if we are on the admin page and verify access
-if (window.location.pathname.endsWith('admin.html')) {
+const path = window.location.pathname;
+if (path.endsWith('admin.html') || path.endsWith('/admin/') || path.endsWith('/admin')) {
     document.addEventListener('DOMContentLoaded', async () => {
         const token = sessionStorage.getItem('session_token');
         const messageDiv = document.getElementById('message');
